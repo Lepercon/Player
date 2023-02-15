@@ -70,7 +70,7 @@
   </head>
   <body>
     <form id="LoginForm" action="">
-      <h1>Log in to refresh URLs</h1>
+      <h1>Login - To refresh URLs</h1>
       <div class="formcontainer">
       <hr/>
       <div class="container">
@@ -85,12 +85,29 @@
     <div class="container" style="background-color: #eee">
       <p id="presignedURLs">Your shows are:</p>
     </div>
+    
     <script>
       function myFunction(form) {
+        /* Prepare to trigger */
         var username = form.uname.value;
         var pwd = form.psw.value;
+        var invocationURL = "https://hjimugakbct2zqdxkppgmhpbc40ulnmi.lambda-url.eu-west-1.on.aws/?username=" + username + "&password=" + pwd;
+        
+        /* Trigger and process */
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.status == 200) {
+            alert(this.responseText)
+                /*document.getElementById("presignedURLs").innerHTML = this.responseText;*/
+            }
+            alert(this.responseText)
+            alert(this.status)
+        };
+		xhttp.open("GET", invocationURL, true);
+        xhttp.send();
+        /*
         var text = username + " " + pwd;
-        document.getElementById("presignedURLs").innerHTML = text;
+        document.getElementById("presignedURLs").innerHTML = text; */
       }
     </script>
 
