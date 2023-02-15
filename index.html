@@ -50,6 +50,15 @@
       padding-top: 0;
       padding-right: 15px;
       }
+      #LoginButton {
+      background-color: #8ebf42;
+      color: white;
+      padding: 14px 0;
+      margin: 10px 0;
+      border: none;
+      cursor: grabbing;
+      width: 100%;
+      }
       /* Change styles for span on extra small screens */
       @media screen and (max-width: 300px) {
         span.psw {
@@ -60,7 +69,7 @@
     </style>
   </head>
   <body>
-    <form action="/action_page.php">
+    <form>
       <h1>Login Form</h1>
       <div class="formcontainer">
       <hr/>
@@ -70,13 +79,20 @@
         <label for="psw"><strong>Password</strong></label>
         <input type="password" placeholder="Enter Password" name="psw" required>
       </div>
-      <button type="submit">Login</button>
-      <div class="container" style="background-color: #eee">
-        <label style="padding-left: 15px">
-        <input type="checkbox"  checked="checked" name="remember"> Remember me
-        </label>
-        <span class="psw"><a href="#"> Forgot password?</a></span>
-      </div>
+      <input id="LoginButton" type="button" onclick="myFunction()" value="Login">
     </form>
+
+    <div class="container" style="background-color: #eee">
+      <br>
+      <br>
+      <p>Your shows are:</p>
+    </div>
+
+    <script>
+      function myFunction() {
+        document.getElementById("frm1").submit();
+      }
+    </script>
+
   </body>
 </html>
