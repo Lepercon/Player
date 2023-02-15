@@ -1,0 +1,4 @@
+ - Print expiry date of presigned URLs
+    - Login form only appears if URLs are outdated
+ - Offer list of shows and accept one to generate URL for
+ - hash pword client side and compare to that in Lambda instead
