@@ -4,11 +4,13 @@ import boto3
 def lambda_handler(event, context):
     # TODO implement
     print(event)
-    username = 'oeb' #event['username']
-    password = 'walrusdog14' #event['password']
+    username = event['queryStringParameters']['username']
+    password = event['queryStringParameters']['password']
+    print(f"username is {username}")
     if authenticate(username, password):
         s3 = boto3.client('s3')
         url = create_presigned_url(s3, 'DeathInParadise/Season12/blah.drawio')
+        print(f"url is {url}")
         return {
             'statusCode': 200,
             'body': json.dumps(url)
